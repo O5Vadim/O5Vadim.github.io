@@ -1,0 +1,42 @@
+!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Википедия моего псевдо интернета</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    
+    <h1>Википедия интернета офлайн</h1>
+    <hr>
+    <p>Интернет офлайн - мой проект где хранятся все штуки и т.д.</p>
+    <p>там есть ссылка на гугл и пока-что больше нечего</p>
+    <a href="/">
+        <button class="кнопка">Эта кнопка на официальный сайт интернет офлайн</button>
+    </a>
+    <hr>
+    <p>Что улучшали на момент 23 марта: </p>
+    <ul class="инфо">
+        <li>Теперь сайт работает без интернета</li>
+        <li>Обновили ссылки</li>
+        <li>Изменили стиль</li>
+    </ul>
+    <hr>
+    <h2>мемы</h2>
+    <p>комментарии разработчика при разработке интернет офлайн: </p>
+    <ul class="мемы">
+        <li>Да как это вообще работает</li>
+    </ul>
+    <p>Больше о нас: </p>
+    <a href="https://github.com/O5Vadim/bot_in_russian">
+        <button class="кнопка">Бот на русском языке</button>
+    </a>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js')
+        }
+    </script>
+</body>
+</html>
