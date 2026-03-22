@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Интернет-офлайн</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Интернет офлайн</h1>
+    <h2>Данный сайт предназначен для работы с интернетом без интернета</h2>
+    <hr>
+    <a href="wiki/">
+        <button class="кнопка">Википедия</button>
+    </a>
+    <p>Кнопка Википедия это кнопка официальной Википедии этого сайта</p>
+    <br>
+    <a href="https://google.com">
+        <button class="кнопка">Google</button>
+    </a>
+    <p>Кнопка Google это официальный поисковик на случай рабочего интернета</p>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js')
+        }
+    </script>
+</body>
+</html>
