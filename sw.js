@@ -5,7 +5,8 @@ const CACHE = 'интернет-офлайн-v1'
 const FILES = [
     '/',
     '/index.html',
-    '/wikiwikiinternet.html',
+    '/wiki/',
+    '/wiki/index.html',
     '/style.css'
 ]
 
