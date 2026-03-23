@@ -1,26 +1,38 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>Не найдено</title>
+    <meta charset="utf-8">
+    <title>не найдено</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
             display: flex;
+            flex-direction: column; /* Элементы встанут друг под другом */
             align-items: center;
             justify-content: center;
             min-height: 100vh;
             margin: 0;
-            color: #ff2d2d;
-            font-family: Arial, sans-serif;
+            /* Градиент: сверху ваш цвет, к низу черный */
+            background: linear-gradient(to bottom, #ffffff 0%, #000000 100%);
+            font-family: arial, sans-serif;
+            color: white; /* Белый цвет для подписи внизу */
         }
-        /* Исправлено название тега и свойства */
+
         strong {
             font-size: 20vw;
+            color: #ff2d2d;
+            line-height: 1;
+            margin-top: -10vh; /* Поднимаем текст чуть выше центра */
+        }
+
+        p {
+            font-size: 2rem;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
     <strong>404</strong>
+    <p>файл не найден</p>
 </body>
 </html>
