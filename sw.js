@@ -7,6 +7,7 @@ const FILES = [
     '/index.html',
     '/wiki/',
     '/http/',
+    '/http/index.html',
     '/wiki/index.html',
     '/style.css'
 ]
