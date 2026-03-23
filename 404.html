@@ -7,32 +7,51 @@
     <style>
         body {
             display: flex;
-            flex-direction: column; /* Элементы встанут друг под другом */
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
             margin: 0;
-            /* Градиент: сверху ваш цвет, к низу черный */
-            background: linear-gradient(to bottom, #ffffff 0%, #000000 100%);
+            /* Плавный переход в черный к низу */
+            background: linear-gradient(to bottom, #2c2c2c 0%, #000000 100%);
             font-family: arial, sans-serif;
-            color: white; /* Белый цвет для подписи внизу */
+            color: white;
+            text-align: center;
         }
 
         strong {
             font-size: 20vw;
             color: #ff2d2d;
-            line-height: 1;
-            margin-top: -10vh; /* Поднимаем текст чуть выше центра */
+            line-height: 0.8;
+            margin-top: -15vh; /* Поднимает текст выше */
         }
 
         p {
-            font-size: 2rem;
-            margin-top: 20px;
+            font-size: 1.5rem;
+            margin: 20px 0 40px;
+            opacity: 0.8;
+        }
+
+        .back-button {
+            padding: 12px 30px;
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        .back-button:hover {
+            background-color: white;
+            color: black;
         }
     </style>
 </head>
 <body>
     <strong>404</strong>
     <p>файл не найден</p>
+    <a href="https://o5vadim.github.io/" class="back-button">вернуться на страницу</a>
 </body>
 </html>
