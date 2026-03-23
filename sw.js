@@ -1,7 +1,7 @@
-// Название кэша — если изменишь файлы, поменяй v1 на v2
-const CACHE = 'интернет-офлайн-v8'
+// Название кэша латиницей (надёжнее)
+const CACHE = 'offline-cache-v9';
 
-// Список файлов которые сохраняем для офлайна
+// Список файлов для сохранения
 const FILES = [
     '/',
     '/index.html',
@@ -11,27 +11,36 @@ const FILES = [
     '/http/index.html',
     '/wiki/index.html',
     '/style.css'
-]
+];
 
-// При первом посещении сохраняем все файлы в кэш
+// Установка: сохраняем всё в кэш и сразу активируем
 self.addEventListener('install', e => {
     e.waitUntil(
         caches.open(CACHE).then(cache => cache.addAll(FILES))
-    )
-})
+    );
+    self.skipWaiting(); // Чтобы обновление вступило в силу сразу
+});
 
-// При обновлении удаляем старый кэш
+// Активация: чистим старые версии кэша
 self.addEventListener('activate', e => {
     e.waitUntil(
         caches.keys().then(keys =>
             Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k)))
         )
-    )
-})
+    );
+});
 
-// Каждый запрос — сначала пробуем интернет, если нет — берём из кэша
+// Запросы: Сначала интернет -> Кэш -> Страница 404
 self.addEventListener('fetch', e => {
     e.respondWith(
-        fetch(e.request).catch(() => caches.match(e.request))
-    )
-})
+        fetch(e.request).catch(() => {
+            return caches.match(e.request).then(response => {
+                // 1. Если файл есть в кэше (например, index.html), отдаем его
+                if (response) return response;
+                
+                // 2. Если файла в кэше нет и интернета нет — отдаем 404.html
+                return caches.match('/404.html');
+            });
+        })
+    );
+});
