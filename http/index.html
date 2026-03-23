@@ -1,1 +1,517 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Документация — Интернет офлайн</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        :root {
+            --green: #22c55e;
+            --blue: #2196F3;
+            --yellow: #f59e0b;
+            --red: #ef4444;
+            --gray: #888;
+        }
 
+        body { max-width: 800px; margin: 0 auto; padding: 20px; }
+
+        .nav {
+            position: sticky;
+            top: 0;
+            background: white;
+            border-bottom: 2px solid #eee;
+            padding: 0.5rem 0;
+            margin-bottom: 2rem;
+            z-index: 100;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .nav a {
+            color: var(--blue);
+            text-decoration: none;
+            font-size: 0.8rem;
+            padding: 0.3rem 0.7rem;
+            border-radius: 20px;
+            border: 1px solid var(--blue);
+        }
+        .nav a:hover { background: var(--blue); color: white; }
+
+        .section { margin-bottom: 3rem; }
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a1a2e;
+            border-left: 4px solid var(--blue);
+            padding-left: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        h3 { color: #333; margin-top: 1.5rem; }
+
+        pre {
+            background: #1a1a2e;
+            color: #e8e8f0;
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            margin: 0.5rem 0 1rem;
+        }
+        code {
+            background: #f0f0f0;
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: #e91e63;
+        }
+        pre code { background: none; color: inherit; padding: 0; }
+
+        .result {
+            border: 2px dashed #ddd;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: #fafafa;
+        }
+        .result-label {
+            font-size: 0.7rem;
+            color: #aaa;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .code-list { list-style: none; padding: 0; }
+        .code-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 0.7rem 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .code-num {
+            font-weight: 700;
+            font-size: 1.1rem;
+            min-width: 55px;
+            font-family: monospace;
+        }
+        .code-name { font-weight: 600; color: #333; }
+        .code-desc { color: #666; font-size: 0.9rem; }
+        .s1xx .code-num { color: var(--gray); }
+        .s2xx .code-num { color: var(--green); }
+        .s3xx .code-num { color: var(--blue); }
+        .s4xx .code-num { color: var(--yellow); }
+        .s5xx .code-num { color: var(--red); }
+
+        .badge {
+            display: inline-block;
+            font-size: 0.65rem;
+            padding: 0.1rem 0.5rem;
+            border-radius: 20px;
+            font-weight: 700;
+            margin-left: 0.4rem;
+        }
+        .badge-fun { background: #fef3c7; color: #92400e; }
+        .badge-imp { background: #fee2e2; color: #991b1b; }
+
+        .tip {
+            background: #f0f9ff;
+            border-left: 3px solid var(--blue);
+            padding: 0.8rem 1rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            color: #555;
+        }
+        .warn {
+            background: #fff7ed;
+            border-left: 3px solid var(--yellow);
+            padding: 0.8rem 1rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+        th { background: #1a1a2e; color: white; padding: 0.6rem; text-align: left; font-size: 0.85rem; }
+        td { padding: 0.6rem; border-bottom: 1px solid #eee; font-size: 0.85rem; }
+        tr:hover td { background: #f9f9f9; }
+
+        .nav-back {
+            display: inline-block;
+            margin-bottom: 1rem;
+            color: var(--blue);
+            text-decoration: none;
+        }
+        .nav-back:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+<a href="/" class="nav-back">← На главную</a>
+
+<h1>📚 Документация</h1>
+<p style="color:#666">Всё о веб-разработке — HTML, CSS, JS, HTTP коды и многое другое</p>
+<hr>
+
+<div class="nav">
+    <a href="#html">HTML</a>
+    <a href="#css">CSS</a>
+    <a href="#links">Ссылки</a>
+    <a href="#images">Картинки</a>
+    <a href="#structure">Структура</a>
+    <a href="#http">HTTP коды</a>
+    <a href="#sw">Service Worker</a>
+    <a href="#git">GitHub</a>
+    <a href="#dns">DNS и домены</a>
+</div>
+
+<!-- HTML -->
+<div class="section" id="html">
+    <div class="section-title">HTML — Структура страницы</div>
+    <p>HTML это не язык программирования — это <strong>разметка</strong>. Как Word только в коде.</p>
+
+    <h3>Базовая структура</h3>
+    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="ru"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Название страницы&lt;/title&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Тут весь контент --&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+    <h3>Заголовки</h3>
+    <pre><code>&lt;h1&gt;Самый большой&lt;/h1&gt;
+&lt;h2&gt;Поменьше&lt;/h2&gt;
+&lt;h3&gt;Ещё меньше&lt;/h3&gt;</code></pre>
+
+    <h3>Текст</h3>
+    <pre><code>&lt;p&gt;Обычный абзац&lt;/p&gt;
+&lt;strong&gt;Жирный текст&lt;/strong&gt;
+&lt;em&gt;Курсив&lt;/em&gt;
+&lt;br&gt;   &lt;!-- Перенос строки --&gt;
+&lt;hr&gt;   &lt;!-- Горизонтальная линия --&gt;</code></pre>
+
+    <h3>Списки</h3>
+    <pre><code>&lt;!-- Ненумерованный --&gt;
+&lt;ul&gt;
+    &lt;li&gt;Первый пункт&lt;/li&gt;
+    &lt;li&gt;Второй пункт&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- Нумерованный --&gt;
+&lt;ol&gt;
+    &lt;li&gt;Первый&lt;/li&gt;
+    &lt;li&gt;Второй&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+
+    <h3>Кнопка</h3>
+    <pre><code>&lt;button&gt;Обычная кнопка&lt;/button&gt;
+&lt;button class="кнопка"&gt;Кнопка со стилем&lt;/button&gt;</code></pre>
+    <div class="result">
+        <div class="result-label">Результат</div>
+        <button class="кнопка">Кнопка со стилем</button>
+    </div>
+</div>
+
+<!-- ССЫЛКИ -->
+<div class="section" id="links">
+    <div class="section-title">Ссылки</div>
+
+    <h3>Обычная ссылка</h3>
+    <pre><code>&lt;a href="https://google.com"&gt;Открыть Google&lt;/a&gt;</code></pre>
+
+    <h3>Ссылки между страницами сайта</h3>
+    <pre><code>&lt;!-- С главной на wiki/ --&gt;
+&lt;a href="wiki/"&gt;Перейти на Вики&lt;/a&gt;
+
+&lt;!-- Из wiki/ на главную --&gt;
+&lt;a href="/"&gt;На главную&lt;/a&gt;
+
+&lt;!-- Из wiki/ в http/ --&gt;
+&lt;a href="../http/"&gt;Документация&lt;/a&gt;</code></pre>
+    <div class="tip">💡 <code>../</code> означает "выйди из папки на уровень выше"</div>
+
+    <h3>Открыть в новой вкладке</h3>
+    <pre><code>&lt;a href="https://google.com" target="_blank"&gt;Google&lt;/a&gt;</code></pre>
+
+    <h3>Кнопка как ссылка</h3>
+    <pre><code>&lt;a href="/wiki/"&gt;
+    &lt;button class="кнопка"&gt;Перейти на Вики&lt;/button&gt;
+&lt;/a&gt;</code></pre>
+</div>
+
+<!-- КАРТИНКИ -->
+<div class="section" id="images">
+    <div class="section-title">Картинки</div>
+
+    <h3>Добавить картинку</h3>
+    <pre><code>&lt;img src="фото.jpg" alt="Описание фото"&gt;</code></pre>
+
+    <h3>Из интернета</h3>
+    <pre><code>&lt;img src="https://сайт.com/картинка.jpg" alt="Описание"&gt;</code></pre>
+
+    <h3>Пути к картинкам</h3>
+    <pre><code>&lt;!-- Рядом с index.html --&gt;
+&lt;img src="cat.jpg" alt="Кот"&gt;
+
+&lt;!-- В папке images/ --&gt;
+&lt;img src="images/cat.jpg" alt="Кот"&gt;
+
+&lt;!-- Уровнем выше --&gt;
+&lt;img src="../images/cat.jpg" alt="Кот"&gt;</code></pre>
+
+    <h3>Размер</h3>
+    <pre><code>&lt;img src="cat.jpg" alt="Кот" width="300"&gt;
+
+&lt;!-- Или через CSS --&gt;
+&lt;img src="cat.jpg" alt="Кот" style="width:100%; max-width:500px"&gt;</code></pre>
+    <div class="warn">⚠️ Всегда заполняй <code>alt</code> — это описание для поисковиков</div>
+</div>
+
+<!-- СТРУКТУРА -->
+<div class="section" id="structure">
+    <div class="section-title">Структура папок сайта</div>
+    <p>Папка = подссылка. Файл внутри всегда называется <code>index.html</code></p>
+    <pre><code>мой-сайт/
+├── index.html          → сайт.com/
+├── style.css           → стили
+├── sw.js               → Service Worker
+├── wiki/
+│   └── index.html      → сайт.com/wiki/
+├── http/
+│   └── index.html      → сайт.com/http/
+└── images/
+    └── cat.jpg</code></pre>
+
+    <h3>Подключить style.css из подпапки</h3>
+    <pre><code>&lt;!-- Из wiki/index.html --&gt;
+&lt;link rel="stylesheet" href="../style.css"&gt;</code></pre>
+</div>
+
+<!-- CSS -->
+<div class="section" id="css">
+    <div class="section-title">CSS — Внешний вид</div>
+
+    <h3>Основные свойства</h3>
+    <pre><code>/* Цвет текста */
+color: red;
+color: #2196F3;
+
+/* Фон */
+background-color: #f9f9f9;
+background: linear-gradient(135deg, #667eea, #764ba2);
+
+/* Шрифт */
+font-size: 16px;
+font-weight: bold;
+font-family: Arial, sans-serif;
+
+/* Отступы */
+margin: 20px;       /* снаружи */
+padding: 10px;      /* внутри */
+
+/* Размеры */
+width: 300px;
+max-width: 800px;
+
+/* Рамка и скругление */
+border: 1px solid #ddd;
+border-radius: 10px;
+
+/* Тень */
+box-shadow: 0 4px 12px rgba(0,0,0,0.1);</code></pre>
+
+    <h3>Классы и ID</h3>
+    <pre><code>&lt;!-- HTML --&gt;
+&lt;p class="большой"&gt;Текст&lt;/p&gt;
+&lt;div id="главный"&gt;Блок&lt;/div&gt;
+
+/* CSS */
+.большой { font-size: 24px; color: blue; }
+#главный { background: yellow; }</code></pre>
+
+    <h3>Анимация при наведении</h3>
+    <pre><code>.кнопка {
+    background: #2196F3;
+    transition: transform 0.2s;
+}
+.кнопка:hover {
+    transform: scale(1.05);
+}</code></pre>
+
+    <h3>Адаптивность под телефон</h3>
+    <pre><code>@media (max-width: 600px) {
+    body { padding: 10px; }
+    h1 { font-size: 1.5rem; }
+}</code></pre>
+</div>
+
+<!-- HTTP КОДЫ -->
+<div class="section" id="http">
+    <div class="section-title">HTTP коды ответа</div>
+    <div class="tip">💡 <strong>Главное правило:</strong> 4xx — виноват клиент, 5xx — виноват сервер</div>
+
+    <h3>1xx — Информационные</h3>
+    <ul class="code-list s1xx">
+        <li class="code-item"><span class="code-num">100</span><div><div class="code-name">Continue</div><div class="code-desc">Продолжай отправку данных</div></div></li>
+        <li class="code-item"><span class="code-num">101</span><div><div class="code-name">Switching Protocols</div><div class="code-desc">Переключение протокола, например на WebSocket</div></div></li>
+    </ul>
+
+    <h3>2xx — Успех ✅</h3>
+    <ul class="code-list s2xx">
+        <li class="code-item"><span class="code-num">200</span><div><div class="code-name">OK</div><div class="code-desc">Всё хорошо</div></div></li>
+        <li class="code-item"><span class="code-num">201</span><div><div class="code-name">Created</div><div class="code-desc">Ресурс создан</div></div></li>
+        <li class="code-item"><span class="code-num">204</span><div><div class="code-name">No Content</div><div class="code-desc">Запрос принят, ответа нет</div></div></li>
+    </ul>
+
+    <h3>3xx — Перенаправления 🔀</h3>
+    <ul class="code-list s3xx">
+        <li class="code-item"><span class="code-num">301</span><div><div class="code-name">Moved Permanently</div><div class="code-desc">Переехал навсегда. Используется для http → https</div></div></li>
+        <li class="code-item"><span class="code-num">302</span><div><div class="code-name">Found</div><div class="code-desc">Переехал временно</div></div></li>
+        <li class="code-item"><span class="code-num">304</span><div><div class="code-name">Not Modified</div><div class="code-desc">Страница не изменилась — бери из кэша</div></div></li>
+    </ul>
+
+    <h3>4xx — Ошибки клиента 🙋</h3>
+    <ul class="code-list s4xx">
+        <li class="code-item"><span class="code-num">400</span><div><div class="code-name">Bad Request</div><div class="code-desc">Кривой запрос</div></div></li>
+        <li class="code-item"><span class="code-num">401</span><div><div class="code-name">Unauthorized</div><div class="code-desc">Нужно войти в аккаунт</div></div></li>
+        <li class="code-item"><span class="code-num">403</span><div><div class="code-name">Forbidden</div><div class="code-desc">Вход запрещён даже с аккаунтом</div></div></li>
+        <li class="code-item"><span class="code-num">404</span><div><div class="code-name">Not Found <span class="badge badge-imp">популярный</span></div><div class="code-desc">Страница не найдена. Интернет ЕСТЬ — сервер просто не нашёл страницу!</div></div></li>
+        <li class="code-item"><span class="code-num">408</span><div><div class="code-name">Request Timeout</div><div class="code-desc">Сервер устал ждать и закрыл соединение</div></div></li>
+        <li class="code-item"><span class="code-num">410</span><div><div class="code-name">Gone</div><div class="code-desc">Страница была но удалена навсегда</div></div></li>
+        <li class="code-item"><span class="code-num">413</span><div><div class="code-name">Payload Too Large</div><div class="code-desc">Файл слишком большой</div></div></li>
+        <li class="code-item"><span class="code-num">418</span><div><div class="code-name">I'm a Teapot <span class="badge badge-fun">пасхалка</span></div><div class="code-desc">Я чайник! Первоапрельская шутка 1998 года. Попробуй: google.com/teapot</div></div></li>
+        <li class="code-item"><span class="code-num">429</span><div><div class="code-name">Too Many Requests</div><div class="code-desc">Слишком много запросов — притормози</div></div></li>
+    </ul>
+
+    <h3>5xx — Ошибки сервера 💥</h3>
+    <ul class="code-list s5xx">
+        <li class="code-item"><span class="code-num">500</span><div><div class="code-name">Internal Server Error</div><div class="code-desc">Что-то сломалось на сервере — не твоя вина!</div></div></li>
+        <li class="code-item"><span class="code-num">502</span><div><div class="code-name">Bad Gateway</div><div class="code-desc">Промежуточный сервер получил плохой ответ</div></div></li>
+        <li class="code-item"><span class="code-num">503</span><div><div class="code-name">Service Unavailable</div><div class="code-desc">Сервер перегружен или на обслуживании</div></div></li>
+        <li class="code-item"><span class="code-num">504</span><div><div class="code-name">Gateway Timeout</div><div class="code-desc">Промежуточный сервер не дождался ответа</div></div></li>
+    </ul>
+</div>
+
+<!-- SERVICE WORKER -->
+<div class="section" id="sw">
+    <div class="section-title">Service Worker — Офлайн режим</div>
+
+    <h3>Подключить в каждом HTML файле</h3>
+    <pre><code>&lt;script&gt;
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js')
+    }
+&lt;/script&gt;</code></pre>
+
+    <h3>Файл sw.js в корне сайта</h3>
+    <pre><code>// Меняй версию каждый раз когда обновляешь сайт!
+const CACHE = 'интернет-офлайн-v2'
+
+const FILES = [
+    '/',
+    '/index.html',
+    '/wiki/',
+    '/wiki/index.html',
+    '/http/',
+    '/http/index.html',
+    '/style.css'
+]
+
+self.addEventListener('install', e => {
+    e.waitUntil(
+        caches.open(CACHE).then(cache => cache.addAll(FILES))
+    )
+})
+
+self.addEventListener('activate', e => {
+    e.waitUntil(
+        caches.keys().then(keys =>
+            Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k)))
+        )
+    )
+})
+
+self.addEventListener('fetch', e => {
+    e.respondWith(
+        fetch(e.request).catch(() => caches.match(e.request))
+    )
+})</code></pre>
+    <div class="warn">⚠️ Когда добавляешь новую страницу — добавь её в FILES и смени версию v2 → v3!</div>
+</div>
+
+<!-- GITHUB -->
+<div class="section" id="git">
+    <div class="section-title">GitHub Pages</div>
+
+    <h3>Создать сайт</h3>
+    <pre><code>1. Репозиторий называется: твойник.github.io
+2. Загрузи файлы через Add file → Upload files
+3. Settings → Pages → Branch: main → Save
+4. Через пару минут: твойник.github.io ✅</code></pre>
+
+    <h3>Создать папку на GitHub</h3>
+    <pre><code>Add file → Create new file
+Имя файла: wiki/index.html
+GitHub сам создаст папку!</code></pre>
+
+    <h3>Ограничения</h3>
+    <pre><code>✅ HTML, CSS, JavaScript
+❌ PHP, Python, серверный Node.js
+📦 Лимит: 1 ГБ
+🔒 HTTPS: автоматически бесплатно</code></pre>
+</div>
+
+<!-- DNS -->
+<div class="section" id="dns">
+    <div class="section-title">DNS и домены</div>
+
+    <h3>Что такое DNS</h3>
+    <pre><code>google.com  →  DNS  →  142.250.74.46
+           телефонная книга интернета</code></pre>
+
+    <h3>Доменные зоны</h3>
+    <table>
+        <tr><th>Зона</th><th>Откуда</th><th>Используют</th></tr>
+        <tr><td>.com</td><td>Коммерческие</td><td>Все подряд</td></tr>
+        <tr><td>.ru</td><td>Россия</td><td>Российские сайты</td></tr>
+        <tr><td>.io</td><td>Остров 🏝️</td><td>IT стартапы</td></tr>
+        <tr><td>.ai</td><td>Остров 🏝️</td><td>ИИ проекты</td></tr>
+        <tr><td>.tv</td><td>Остров Тувалу 🏝️</td><td>Стримеры</td></tr>
+        <tr><td>.github.io</td><td>GitHub</td><td>Бесплатный хостинг</td></tr>
+    </table>
+
+    <h3>Единицы данных</h3>
+    <table>
+        <tr><th>Единица</th><th>Равно</th></tr>
+        <tr><td>Байт</td><td>8 бит</td></tr>
+        <tr><td>Килобайт (КБ)</td><td>1024 байт</td></tr>
+        <tr><td>Мегабайт (МБ)</td><td>1024 КБ</td></tr>
+        <tr><td>Гигабайт (ГБ)</td><td>1024 МБ</td></tr>
+        <tr><td>Терабайт (ТБ)</td><td>1024 ГБ</td></tr>
+        <tr><td>Петабайт (ПБ)</td><td>1024 ТБ</td></tr>
+        <tr><td>Эксабайт (ЭБ)</td><td>1024 ПБ</td></tr>
+        <tr><td>Зеттабайт (ЗБ)</td><td>1024 ЭБ — весь интернет ~5 ЗБ</td></tr>
+        <tr><td>Йоттабайт (ЙБ)</td><td>1024 ЗБ — человечество ещё не дошло 😄</td></tr>
+    </table>
+</div>
+
+<hr>
+<p style="color:#aaa;font-size:0.8rem;text-align:center">Интернет офлайн — документация создана 23 марта 2026 😄</p>
+
+<script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js')
+    }
+</script>
+</body>
+  </html>
