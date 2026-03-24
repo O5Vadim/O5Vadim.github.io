@@ -37,3 +37,21 @@ p, li {
 
 ul.инфо { color: #333; }
 ul.мемы { color: #888; font-style: italic; }
+
+.email-button {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: transparent;
+    color: #ff2d2dad;
+    border: 2px solid #ff2d2d; /* Красная рамка под твой стиль */
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+    margin-top: 20px;
+}
+
+.email-button:hover {
+    background-color: #ff2d2d; /* При наведении кнопка станет красной */
+    color: #000000;
+}
