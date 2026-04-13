@@ -1,5 +1,5 @@
 // Название кэша латиницей (надёжнее)
-const CACHE = 'offline-cache-v13';
+const CACHE = 'offline-cache-v14';
 
 // Список файлов для сохранения
 const FILES = [
